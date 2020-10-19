@@ -153,3 +153,10 @@
   color: #27cdff;
   font-weight: 600;
 }
+
+/* media queries for mobile screens */
+@media only screen and (max-width: 600px) {
+  .form-container {
+    width: 100%;
+  }
+}

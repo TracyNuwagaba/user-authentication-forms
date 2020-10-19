@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-//import axios from 'axios';
+import { BrowserRouter as Router, Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 
 const defaultState = {
@@ -10,11 +10,16 @@ const defaultState = {
   passwordError: ""
 }
 
+const isLoggedIn = '';
+
 export default class Login extends Component {
     constructor(props) {
         super(props);
     
-        this.state = defaultState;
+        this.state = {
+          defaultState,
+          isLoggedIn: true
+        };
     
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -61,28 +66,32 @@ export default class Login extends Component {
             // clear form
             this.setState(defaultState);
         }
-        // const { email, password } = this.state;
+        
+        const { email, password } = this.state;
     
-        // axios
-        //   .post(
-        //     "http://localhost:3001/sessions",
-        //     {
-        //       user: {
-        //         email: email,
-        //         password: password
-        //       }
-        //     },
-        //     { withCredentials: true }
-        //   )
-        //   .then(response => {
-        //     if (response.data.logged_in) {
-        //       this.props.handleSuccessfulAuth(response.data);
-        //     }
-        //   })
-        //   .catch(error => {
-        //     console.log("login error", error);
-        //   });
-        // event.preventDefault();
+        axios
+          .post(
+            `https://localhost:3000/api/login`,
+            {
+              user: {
+                email: email,
+                password: password
+              }
+            },
+            { withCredentials: true }
+          )
+          .then(response => {
+            if (response.data.logged_in) {
+              this.props.handleSuccessfulAuth(response.data);
+            }
+            if (!isLoggedIn()) { 
+              return <Redirect to="/signup" />;
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+        event.preventDefault();
       }
 
     render() {
@@ -131,7 +140,7 @@ export default class Login extends Component {
                     <span className="form-input-signup">
                         Don't have an account? 
                         <Router> 
-                          <Link to="/signupComponents/FormSignup">
+                          <Link to="/">
                             Sign up</Link>
                         </Router>
                     </span>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-//import axios from 'axios';
+import axios from 'axios';
 import './Signup.css';
 //import Login from './Login';
 
@@ -40,10 +40,8 @@ export default class Signup extends Component {
         // username validation
         if (!this.state.username) {
             usernameError = "username required";
-        }
-
-        if (!typeof this.state.username) {
-            usernameError = "Please enter valid username"
+        } else if (this.state.username.length < 5) {
+            usernameError = "username should have a minimum of 5 characters";
         }
 
         // email validation
@@ -56,8 +54,8 @@ export default class Signup extends Component {
         // password validation
         if (!this.state.password) {
             passwordError = "Password required";
-        }  else if (this.state.password.length < 7 && this.state.password.length > 10) {
-            passwordError = "password should have a minimum of 6 characters and a maximum of 10 characters"
+        }  else if (this.state.password.length < 7) {
+            passwordError = "password should have a minimum of 7 characters";
         }
 
         // confirm password validation
@@ -85,11 +83,28 @@ export default class Signup extends Component {
             this.setState(initialState);
         }
 
+        const user = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            password2: this.state.password2
+        };
+
+        axios
+          .post(`https://localhost:3000/api/signup`, { user })
+          .then(res => {
+              console.log(res);
+              console.log(res.data);
+          })
+          .catch(err => {
+                console.log(err);
+          });
+
         // const { username, email, password, password2 } = this.state;
 
         // axios
         //     .post(
-        //     "http://localhost:3001/sessions",
+        //     "https://team-faw.herokuapp.com/api/signup",
         //     {
         //         user: {
         //         username: username,  
@@ -105,8 +120,8 @@ export default class Signup extends Component {
         //         this.props.handleSuccessfulAuth(response.data);
         //     }
         //     })
-        //     .catch(error => {
-        //     console.log("signup error", error);
+        //     .catch(err => {
+        //     console.log(err);
         //     });
         // event.preventDefault();
     }
@@ -195,7 +210,7 @@ export default class Signup extends Component {
                         <span className="form-input-login">
                             Already have an account? Login 
                             <Router>
-                                <Link to="/login"> here</Link>
+                                <Link to="/"> here</Link>
                             </Router>
                         </span>
                     </form>

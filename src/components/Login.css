@@ -15,8 +15,8 @@
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1),
-    -7px -7px 20px rgba(241, 255, 255, 1);
+  /* box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1),
+    -7px -7px 20px rgba(241, 255, 255, 1); */
 
   align-items: center;
   /* background: #7ec0ee; */
@@ -101,4 +101,11 @@
   font-size: 16px;
   color: #167bff;
   margin-left: 120px;
+}
+
+/* media queries for mobile screens */
+@media only screen and (max-width: 600px) {
+  .login-container {
+    width: 100%;
+  }
 }
