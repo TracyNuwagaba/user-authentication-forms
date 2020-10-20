@@ -91,7 +91,12 @@ export default class Signup extends Component {
         };
 
         axios
-          .post(`https://localhost:3000/api/signup`, { user })
+          .post(`https://localhost:3000/api/signup`, { user }, {
+              headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+              }
+          })
           .then(res => {
               console.log(res);
               console.log(res.data);
@@ -210,7 +215,7 @@ export default class Signup extends Component {
                         <span className="form-input-login">
                             Already have an account? Login 
                             <Router>
-                                <Link to="/"> here</Link>
+                                <Link to="/login"> here</Link>
                             </Router>
                         </span>
                     </form>

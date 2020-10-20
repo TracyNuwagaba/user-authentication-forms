@@ -55,13 +55,13 @@ function Navbar() {
                         </li>
                         <li className="nav-btn">
                             {button ? (
-                                <Link className="btn-link">
+                                <Link to='/signup' className="btn-link">
                                     <Button buttonStyle='btn--outline'>
                                         Sign up
                                     </Button>
                                 </Link>
                             ): (
-                                <Link className="btn-link" onClick=
+                                <Link to='/signup' className="btn-link" onClick=
                                 {closeMobileMenu}>
                                     <Button buttonStyle='btn--outline'
                                         buttonSize='btn--mobile'>
@@ -72,13 +72,13 @@ function Navbar() {
                         </li>
                         <li className="nav-btn">
                             {button ? (
-                                <Link className="btn-link">
+                                <Link to='/login' className="btn-link">
                                     <Button buttonStyle='btn--outline'>
                                         Log in
                                     </Button>
                                 </Link>
                             ): (
-                                <Link className="btn-link" onClick=
+                                <Link to='/login' className="btn-link" onClick=
                                 {closeMobileMenu}>
                                     <Button buttonStyle='btn--outline'
                                         buttonSize='btn--mobile'>

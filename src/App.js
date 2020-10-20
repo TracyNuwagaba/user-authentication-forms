@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Navbar from './components/pages/Navbar';
+import Footer from './components/pages/Footer';
+import Home from './components/pages/homepage/Home'
+import About from './components/pages/aboutUs/About'
 
 function App() {
   // const [isUserAuthenticated, setIsUserAuthenticated] = useState(true);
@@ -13,16 +16,12 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-      {/* <Route exact path="/" render={() => {
-        return (
-          isUserAuthenticated ? <Redirect to='/home' /> :
-          <Redirect to='/signup' />
-          )
-        }} /> */}
-        {/* <Route path="/" component={Home} /> */}
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
       </Switch>
+      <Footer />
     </Router>
     </>
   );

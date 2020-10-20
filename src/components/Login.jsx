@@ -140,7 +140,7 @@ export default class Login extends Component {
                     <span className="form-input-signup">
                         Don't have an account? 
                         <Router> 
-                          <Link to="/">
+                          <Link to="/signup">
                             Sign up</Link>
                         </Router>
                     </span>
