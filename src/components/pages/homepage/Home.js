@@ -6,8 +6,8 @@ function Home() {
     return (
         <>
             <HomeSection {...homeObjOne} />
-            <HomeSection {...homeObjThree} />
             <HomeSection {...homeObjTwo} />
+            <HomeSection {...homeObjThree} />
             <HomeSection {...homeObjFour} />  
         </>
     )

@@ -22,7 +22,7 @@ export const homeObjOne = {
       'We have you covered no matter where you are located. Faw is the fastest way for you to build an internal knowledge base',
     buttonLabel: 'Learn More',
     imgStart: '',
-    img: 'img/img-2.jpg',
+    img: 'img/img-6.jpg',
     alt: 'Team'
   };
   
@@ -36,7 +36,7 @@ export const homeObjOne = {
       "Faw delivers answers to common questions and verified knowledge within the flow of work.",
     buttonLabel: 'Start Now',
     imgStart: 'start',
-    img: 'img/img-2.jpg',
+    img: 'img/img-7.jpg',
     alt: 'Team'
   };
   
@@ -50,6 +50,6 @@ export const homeObjOne = {
       'Faw is a place where users can congregate, post questions, find answers and submit ideas for product enhancement.',
     buttonLabel: 'Sign Up Now',
     imgStart: 'start',
-    img: 'img/img-2.jpg',
+    img: 'img/img-5.jpg',
     alt: 'Team'
   };

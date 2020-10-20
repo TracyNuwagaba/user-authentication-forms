@@ -95,7 +95,8 @@ export default class Signup extends Component {
               headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json'
-              }
+              },
+              body: JSON.stringify(user)
           })
           .then(res => {
               console.log(res);
